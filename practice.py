@@ -99,9 +99,51 @@ def smallest_int(numbers):
         True
     """
 
-    for number in numbers:
-        
-    return 100
+    # SOLUTION 1:
+    # if numbers == []:
+    #     return "None"
+
+    # else:
+    #     smallest_num = ""
+    #     for index in range(len(numbers)):
+    #         compare1 = numbers[index]
+    #         if compare1 < smallest_num:
+    #             smallest_num = compare1
+    #         elif compare1 > smallest_num:
+    #             smallest_num = smallest_num
+    #     return smallest_num
+
+    # SOLUTION 2:
+    # if numbers == []: # If the list is empty, return "None"
+    #     return "None"
+
+    # else:
+    #     smallest_num = ""
+    #     for number in numbers:
+    #         if type(number) != int: # If there is an input that is not an integer, inform the user and break.
+    #             return "Invalid Entry: Input must be given as a list of integers."
+    #             break
+    #         else:
+    #             if number < smallest_num:
+    #                 smallest_num = number
+
+    #     return smallest_num
+
+    # SOLUTION 3: (barely changed from SOL2 -- just gave smallest_num an int value to start).
+    if numbers == []: # If the list is empty, return "None"
+        return "None"
+
+    else:
+        smallest_num = numbers[0]
+        for number in numbers: # Decided not to start at numbers[1] just in case the user only put in one argument.
+            if type(number) != int: # If there is an input that is not an integer, inform the user and break.
+                return "Invalid Entry: Input must be given as a list of integers."
+                break
+            else:
+                if number < smallest_num:
+                    smallest_num = number
+
+        return smallest_num
 
 
 def largest_int(numbers):
@@ -123,7 +165,20 @@ def largest_int(numbers):
         True
     """
 
-    return 0
+    if numbers == []: # If the list is empty, return "None"
+        return "None"
+
+    else:
+        largest_num = numbers[0]
+        for number in numbers: # Decided not to start at numbers[1] just in case the user only put in one argument.
+            if type(number) != int: # If there is an input that is not an integer, inform the user and break.
+                return "Invalid Entry: Input must be given as a list of integers."
+                break
+            else:
+                if largest_num < number:
+                    largest_num = number
+
+        return largest_num
 
 
 def halvesies(numbers):
@@ -140,8 +195,7 @@ def halvesies(numbers):
         >>> halvesies([1, 5])
         [0.5, 2.5]
     """
-
-    return []
+    return [number/float(2) for number in numbers]
 
 
 def word_lengths(words):
@@ -153,7 +207,7 @@ def word_lengths(words):
         [5, 3, 5, 4]
     """
 
-    return []
+    return [len(word) for word in words]
 
 
 def sum_numbers(numbers):
@@ -173,7 +227,11 @@ def sum_numbers(numbers):
         0
     """
 
-    return None
+    sum_all = 0
+    for number in numbers:
+        sum_all += number
+
+    return sum_all
 
 
 def mult_numbers(numbers):
