@@ -254,7 +254,11 @@ def mult_numbers(numbers):
         1
     """
 
-    return None
+    product = 1
+    for number in numbers:
+        product *= number
+
+    return product
 
 
 def join_strings(words):
@@ -274,7 +278,11 @@ def join_strings(words):
         ''
     """
 
-    return "Not the right thing"
+    joined_string = ""
+    for word in words:
+        joined_string += word
+
+    return joined_string
 
 
 def average(numbers):
@@ -296,8 +304,23 @@ def average(numbers):
     (Think of the best way to handle an empty input list, though,
     a feel free to provide a good solution here.)
     """
+    if numbers == []:
+        return "I can't give you an average without any numbers!"
 
-    return 0
+    else:
+        number_of_numbers = len(numbers)
+        sum_all = 0
+
+        for number in numbers:
+            if type(number) != int: # This is to break the process and return an error if non integer input is received.
+                return "No can do -- averages are only for nummy numbers!"
+                break
+            else:
+                sum_all += number
+
+        average = sum_all / float(number_of_numbers)
+
+    return average
 
 
 def join_strings_with_comma(words):
