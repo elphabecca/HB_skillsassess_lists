@@ -17,7 +17,7 @@ def all_odd(numbers):
         []
     """
 
-    return ['the wrong thing']
+    return [num for num in numbers if num % 2 != 0]
 
 
 def print_indices(items):
@@ -38,9 +38,11 @@ def print_indices(items):
         1 Jeep
         2 Volvo
     """
+    
+    for number in range(len(items)):
+        print number, items[number]
 
-    print "Nothing at all"
-
+    # Also a way to do this with enumerate***
 
 def foods_in_common(foods1, foods2):
     """Find foods in common.
@@ -69,8 +71,12 @@ def foods_in_common(foods1, foods2):
         []
 
     """
+    foods1_set = set(foods1)
+    foods2_set = set(foods2)
 
-    return ['the wrong thing']
+    common_foods = list(foods1_set & foods2_set)
+
+    return sorted(common_foods)
 
 
 def every_other_item(items):
