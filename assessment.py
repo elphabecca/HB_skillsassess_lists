@@ -42,7 +42,7 @@ def print_indices(items):
     for number in range(len(items)):
         print number, items[number]
 
-    # Also a way to do this with enumerate***
+    # ***Also a way to do this with enumerate***
 
 def foods_in_common(foods1, foods2):
     """Find foods in common.
@@ -93,7 +93,7 @@ def every_other_item(items):
        ['you', 'are', 'good', 'at', 'code']
     """
 
-    return ['the wrong thing']
+    return [item for item in items[::2]]
 
 
 def largest_n_items(items, n):
@@ -118,7 +118,12 @@ def largest_n_items(items, n):
         [3, 3]
     """
 
-    return []
+    sorted_items = sorted(items)
+    biggest_first = sorted_items[::-1]
+
+    n_biggest = biggest_first[:n]
+    
+    return sorted(n_biggest)
 
 
 #####################################################################
