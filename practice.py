@@ -101,7 +101,7 @@ def smallest_int(numbers):
 
     # SOLUTION 1:
     # if numbers == []:
-    #     return "None"
+    #     return
 
     # else:
     #     smallest_num = ""
@@ -115,7 +115,7 @@ def smallest_int(numbers):
 
     # SOLUTION 2:
     # if numbers == []: # If the list is empty, return "None"
-    #     return "None"
+    #     return
 
     # else:
     #     smallest_num = ""
@@ -131,7 +131,7 @@ def smallest_int(numbers):
 
     # SOLUTION 3: (barely changed from SOL2 -- just gave smallest_num an int value to start).
     if numbers == []: # If the list is empty, return "None"
-        return "None"
+        return
 
     else:
         smallest_num = numbers[0]
@@ -166,7 +166,7 @@ def largest_int(numbers):
     """
 
     if numbers == []: # If the list is empty, return "None"
-        return "None"
+        return
 
     else:
         largest_num = numbers[0]
@@ -340,7 +340,16 @@ def join_strings_with_comma(words):
         'Pretzel'
     """
 
-    return ""
+    if words == []: # In case there is an empty string
+        return "Please give me some input to nom nom nom on."
+
+    else:
+        joined_strings_w_comma = words[0]
+
+        for word in words[1:]: # Starting at 1 so if there's only one word it doesn't come out with a comma and space.
+            joined_strings_w_comma += ", " + word
+
+        return joined_strings_w_comma
 
 
 def reverse_list(items):
@@ -366,7 +375,21 @@ def reverse_list(items):
         ['apple', 'berry', 'cherry']
     """
 
-    return []
+    # SOLUTION 1:
+    return items[::-1]
+
+    # SOLUTION 2:
+    # return [item for item in items[::-1]]
+
+    # SOLUTION 3:
+    # reversed_items = []
+    # countdown = len(items)
+
+    # for index in range(countdown):
+    #     reversed_items.append(items[countdown-1])
+    #     countdown -= 1
+
+    # return reversed_items
 
 
 def reverse_list_in_place(items):
@@ -392,7 +415,11 @@ def reverse_list_in_place(items):
         ['I', 'love', 'cookies']
     """
 
-    return []
+    for item in items[len(items)-1::-1]:
+        items.remove(item)
+        items.append(item)
+
+    return
 
 
 def duplicates(items):
@@ -421,7 +448,15 @@ def duplicates(items):
         ['apple', 'apple', 'berry']
     """
 
-    return []
+    duplicates_set = set([])
+
+    for item in items:
+        if items.count(item) > 1:
+            duplicates_set.add(item)
+
+    duplicates = list(sorted(duplicates_set))
+
+    return duplicates
 
 
 def find_letter_indices(words, letter):
@@ -451,7 +486,22 @@ def find_letter_indices(words, letter):
     `None`.)
     """
 
-    return []
+    letter_indices = []
+
+    for word in words:
+        if "o" in word:
+            counter = 0
+            for char in word:
+                if char == "o":
+                    letter_indices.append(counter)
+                    break
+                else:
+                    counter += 1
+        else:
+            letter_indices.append(None)
+
+    return letter_indices
+
 
 #####################################################################
 # END OF PRACTICE: You can ignore everything below.
