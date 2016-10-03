@@ -39,10 +39,15 @@ def print_indices(items):
         2 Volvo
     """
     
+    # SOLUTION 1:
     for number in range(len(items)):
         print number, items[number]
 
-    # ***Also a way to do this with enumerate***
+    # SOLUTION 2: (This gets really close, but returns tuples with  punctuation that fails the test.)
+    # for item in enumerate(items):
+    #     print item
+
+
 
 def foods_in_common(foods1, foods2):
     """Find foods in common.
@@ -72,7 +77,7 @@ def foods_in_common(foods1, foods2):
 
     """
     foods1_set = set(foods1)
-    foods2_set = set(foods2)
+    foods2_set = set(foods2) # Turning these lists into sets will enable me to find the intersection.
 
     common_foods = list(foods1_set & foods2_set)
 
@@ -117,13 +122,20 @@ def largest_n_items(items, n):
         >>> largest_n_items([3, 3, 3, 2, 1], 2)
         [3, 3]
     """
+    # SOLUTION 1:
+    # sorted_items = sorted(items)
+    # biggest_first = sorted_items[::-1]
 
-    sorted_items = sorted(items)
-    biggest_first = sorted_items[::-1]
-
-    n_biggest = biggest_first[:n]
+    # n_biggest = biggest_first[:n]
     
-    return sorted(n_biggest)
+    # return sorted(n_biggest)
+
+    # SOLUTION 2: 
+    sorted_items = sorted(items)
+
+    n_biggest = sorted_items[len(sorted_items)-n:]
+    
+    return n_biggest
 
 
 #####################################################################
